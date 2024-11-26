@@ -2,7 +2,6 @@ namespace GeometryLibrary.Figures;
 
 public class Triangle : IShape
 {
-    const double Epsilon = 1e-6;
     public double A { get; }
     public double B { get; }
     public double C { get; }
@@ -43,6 +42,6 @@ public class Triangle : IShape
 
         // Проверка теоремы Пифагора
         return Math.Abs(Math.Pow(sides[2], 2) - (Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2)))
-            < Epsilon;
+            < Double.Epsilon;
     }
 }
