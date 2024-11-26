@@ -2,6 +2,7 @@ namespace GeometryLibrary.Figures;
 
 public class Triangle : IShape
 {
+    const double Epsilon = 1e-6;
     public double A { get; }
     public double B { get; }
     public double C { get; }
@@ -29,7 +30,9 @@ public class Triangle : IShape
     public double CalculateArea()
     {
         double semiPerimeter = (A + B + C) / 2;
-        return Math.Sqrt(semiPerimeter * (semiPerimeter - A) * (semiPerimeter - B) * (semiPerimeter - C));
+        return Math.Sqrt(
+            semiPerimeter * (semiPerimeter - A) * (semiPerimeter - B) * (semiPerimeter - C)
+        );
     }
 
     // Метод для проверки, является ли треугольник прямоугольным
@@ -39,7 +42,7 @@ public class Triangle : IShape
         Array.Sort(sides);
 
         // Проверка теоремы Пифагора
-        return Math.Abs(Math.Pow(sides[2], 2) - (Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2))) < 1e-6;
-
+        return Math.Abs(Math.Pow(sides[2], 2) - (Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2)))
+            < Epsilon;
     }
 }

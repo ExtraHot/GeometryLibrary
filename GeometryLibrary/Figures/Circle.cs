@@ -17,6 +17,4 @@ public class Circle : IShape
     {
         return Math.PI * Math.Pow(Radius, 2);
     }
-    
-    
 }
